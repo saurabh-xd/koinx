@@ -1,23 +1,18 @@
-import Image from "next/image";
+"use client"
+
+import Header from "@/components/header";
+
+
 
 export default function Home() {
+
+
+
   return (
-     <main className="p-6 bg-black min-h-screen text-white">
-      {/* Top Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div className="bg-[#111] p-4 rounded-xl">
-          Pre Harvesting
-        </div>
+   <main className="p-6 mx-16 bg-background min-h-screen">
 
-        <div className="bg-blue-600 p-4 rounded-xl">
-          After Harvesting
-        </div>
-      </div>
-
-      {/* Table */}
-      <div className="bg-[#111] p-4 rounded-xl">
-        Holdings Table
-      </div>
+    <Header/>
+     
     </main>
   );
 }

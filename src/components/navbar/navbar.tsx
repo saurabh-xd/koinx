@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-      <nav className="sticky top-0 z-50 px-3 py-3 md:p-5 shadow-md border-b-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="px-8 py-6 shadow-md border-b-1 bg-background ">
      
      <Link href="#">
 
