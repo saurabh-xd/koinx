@@ -48,8 +48,8 @@ export default function HarvestCard({
 
         <div className="grid grid-cols-[2fr_1fr_1fr] items-center mb-2 text-sm md:text-base">
           <span></span>
-          <span className="text-right pr-4 whitespace-nowrap">Short-term</span>
-          <span className="text-right">Long-term</span>
+          <span className="text-right pr-4 whitespace-nowrap text-[#D1D7ED]">Short-term</span>
+          <span className="text-right text-[#D1D7ED]">Long-term</span>
         </div>
 
         <Row label="Profits" stcg={stcg.profits} ltcg={ltcg.profits} />

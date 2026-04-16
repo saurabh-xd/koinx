@@ -64,7 +64,7 @@ const visibleHoldings = showAll
     <div className="bg-card dark:bg-[#171A26] p-4 rounded-xl mt-6 shadow-[0px_2px_16px_rgba(25,40,57,0.09)]">
       <h2 className="text-lg font-semibold mb-4">Holdings</h2>
 
-      {/* SCROLL FIX */}
+      
       <div className="max-h-[400px] overflow-y-auto overflow-x-auto rounded-lg">
       <Table className="min-w-[800px] table-fixed">
   {/* HEADER */}
@@ -87,7 +87,7 @@ const visibleHoldings = showAll
     </span>
   </div>
 </TableHead>
-      <TableHead className="text-sm font-semibold  ">Total current Value</TableHead>
+      <TableHead className="text-sm font-semibold  truncate">Total current Value</TableHead>
 
       <TableHead  onClick={toggleSort}
   className="cursor-pointer select-none flex items-center gap-1 text-sm font-semibold"
@@ -140,14 +140,14 @@ const visibleHoldings = showAll
 
           {/* Holdings */}
           <TableCell>
-            <p>{item.totalHolding.toFixed(4)} {item.coin}</p>
+            <p className="text-sm truncate">{item.totalHolding.toFixed(4)} {item.coin}</p>
             <p className="text-xs text-[#64748B]">
               ${item.averageBuyPrice.toFixed(2)}
             </p>
           </TableCell>
 
           {/* Total Value */}
-          <TableCell>
+          <TableCell className="text-sm">
             $
             {(item.totalHolding * item.currentPrice).toLocaleString()}
           </TableCell>
@@ -156,8 +156,8 @@ const visibleHoldings = showAll
           <TableCell
             className={
               item.stcg.gain > 0
-                ? "text-[#00AE78]"
-                : "text-[#F7324C]"
+                ? "text-green-500 text-sm"
+                : "text-red-500 text-sm"
             }
           >
             ${item.stcg.gain.toFixed(2)} 
@@ -170,8 +170,8 @@ const visibleHoldings = showAll
           <TableCell
             className={
               item.ltcg.gain > 0
-                ? "text-green-500"
-                : "text-red-500"
+                ? "text-green-500 text-sm"
+                : "text-red-500 text-sm"
             }
           >
             ${item.ltcg.gain.toFixed(2)}
@@ -181,7 +181,7 @@ const visibleHoldings = showAll
           </TableCell>
 
           {/* Amount to Sell */}
-          <TableCell>
+          <TableCell className="text-sm">
             {isChecked
               ? `${item.totalHolding.toFixed(4)} ${item.coin} `
               : "-"}

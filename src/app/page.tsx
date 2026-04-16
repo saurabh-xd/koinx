@@ -9,25 +9,66 @@ export default function Home() {
   const [holdings, setHoldings] = useState<any[]>([]);
   const [gains, setGains] = useState<any>(null);
   const [selected, setSelected] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      const h = await getHoldings();
-      const g = await getCapitalGains();
 
-      setHoldings(h as any[]);
-      setGains(g);
+      try {
+        const h = await getHoldings();
+        const g = await getCapitalGains();
+  
+           setHoldings(h as any[]);
+           setGains(g);
+      } catch (error) {
+        setError("Failed to load data. Please try again.")
+      }
     };
 
     fetchData();
   }, []);
 
-  if (!gains) {
-    return <div className="p-6 text-center text-gray-500">Loading data...</div>;
-  }
+if (error) {
+  return (
+    <main className="p-6 min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-3">
+        <p className="text-red-500 font-medium">
+         {error}
+        </p>
+
+        <button
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 bg-blue-500 text-white rounded-md text-sm"
+        >
+          Retry
+        </button>
+      </div>
+    </main>
+  )
+}
+
+
+ if (!gains) {
+  return (
+    <main className="p-6 min-h-screen flex flex-col max-w-[1400px] mx-auto animate-pulse">
+      
+      {/* Header skeleton */}
+      <div className="h-6 w-48 bg-gray-200 dark:bg-gray-800 rounded mb-6" />
+
+      {/* Cards skeleton */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+        <div className="h-50 bg-gray-200 dark:bg-gray-800 rounded-xl" />
+        <div className="h-50 bg-gray-200 dark:bg-gray-800 rounded-xl" />
+      </div>
+
+      {/* Table skeleton */}
+      <div className="bg-gray-200 dark:bg-gray-800 rounded-xl h-[300px]" />
+    </main>
+  )
+}
 
   const computeUpdatedGains = () => {
-    const updated = JSON.parse(JSON.stringify(gains)); // ✅ FIX
+    const updated = JSON.parse(JSON.stringify(gains));
 
     holdings.forEach((h) => {
       if (!selected.includes(h.coin)) return;
@@ -39,7 +80,7 @@ export default function Home() {
         updated.stcg.losses += Math.abs(h.stcg.gain);
       }
 
-      // LTCG
+      // LTCG    
       if (h.ltcg.gain > 0) {
         updated.ltcg.profits += h.ltcg.gain;
       } else {
@@ -54,11 +95,10 @@ export default function Home() {
   const preLtcgNet = gains.ltcg.profits - gains.ltcg.losses;
 
   const preRealised = preStcgNet + preLtcgNet;
-
+      
   const updated = computeUpdatedGains();
 
   const postStcgNet = updated.stcg.profits - updated.stcg.losses;
-
   const postLtcgNet = updated.ltcg.profits - updated.ltcg.losses;
 
   const postRealised = postStcgNet + postLtcgNet;

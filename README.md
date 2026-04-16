@@ -65,6 +65,8 @@ http://localhost:3000
 
 ![Desktop](./public/image.png)
 
+![Desktop](./public/mobile.png)
+
 
 
 ---
