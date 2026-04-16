@@ -61,14 +61,14 @@ const visibleHoldings = showAll
   ? sortedHoldings
   : sortedHoldings.slice(0, 4)
   return (
-    <div className="bg-card p-4 rounded-xl mt-6 shadow-[0px_2px_16px_rgba(25,40,57,0.09)]">
+    <div className="bg-card dark:bg-[#171A26] p-4 rounded-xl mt-6 shadow-[0px_2px_16px_rgba(25,40,57,0.09)]">
       <h2 className="text-lg font-semibold mb-4">Holdings</h2>
 
       {/* SCROLL FIX */}
       <div className="max-h-[400px] overflow-y-auto overflow-x-auto rounded-lg">
       <Table className="min-w-[800px] table-fixed">
   {/* HEADER */}
-  <TableHeader className="bg-[#F1F5F9]">
+  <TableHeader className="bg-[#F1F5F9] dark:bg-[#0A0A12]">
     <TableRow>
       <TableHead className="w-[40px] text-center">
         <input
@@ -77,7 +77,7 @@ const visibleHoldings = showAll
           onChange={toggleAll}
         />
       </TableHead>
-      <TableHead className="w-[200px] px-3">Asset</TableHead>
+      <TableHead className="w-[200px] px-3 ">Asset</TableHead>
       <TableHead>
   <div className="flex flex-col">
     <span>Holdings</span>
@@ -113,7 +113,7 @@ const visibleHoldings = showAll
         <TableRow
           key={`${item.coin}-${idx}`}
           className={`cursor-pointer ${
-            isChecked ? "bg-[#EAF2FF] hover:bg-[#DBE2EC]" : ""
+            isChecked ? "bg-[#EAF2FF] hover:bg-[#DBE2EC] dark:bg-[#121D3A]" : ""
           }`}
         >
           {/* Checkbox */}

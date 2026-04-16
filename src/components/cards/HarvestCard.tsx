@@ -40,7 +40,7 @@ export default function HarvestCard({
       className={`rounded-xl p-5 ${
         highlight ?
           "bg-gradient-to-r from-[#3C9AFF] to-[#0066FE] text-white"
-        : "bg-card "
+        : "bg-card dark:bg-[#171A26]"
       }`}
     >
       <CardContent className="p-0 space-y-4">

@@ -15,9 +15,9 @@ export default function Header() {
   return (
     <div className="flex flex-col gap-3 mb-4">
       <div className="flex items-center  gap-2.5">
-        <h2 className="font-bold text-xl text-[#0F172A]">Tax Harvesting</h2>
+        <h2 className="font-bold text-xl text-[#0F172A] dark:text-[#FFFFFF]">Tax Harvesting</h2>
         <Tooltip>
-          <TooltipTrigger className="text-[#0052FE] text-xs underline ">
+          <TooltipTrigger className="text-[#0052FE] dark:text-[#4A78FF]  text-xs underline ">
             {} How it Works?
           </TooltipTrigger>
           <TooltipContent side="bottom">
@@ -32,11 +32,11 @@ export default function Header() {
       <div>
         <Accordion
           defaultValue={["item-1"]}
-          className="border border-[#0052FE] bg-[#EAF2FF] "
+          className="border border-[#0052FE] bg-[#EAF2FF] dark:bg-[#121D3A]"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger className="gap-2 items-center text-[#0F172A]">
-              <Info className="size-4.5 text-blue-600" />
+            <AccordionTrigger className="gap-2 items-center text-[#0F172A] dark:text-[#FFFFFF]">
+              <Info className="size-4.5 text-blue-600 " />
               Important Notes & Disclaimers
             </AccordionTrigger>
             <AccordionContent className="  text-sm ">

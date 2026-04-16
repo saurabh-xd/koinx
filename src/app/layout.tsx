@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const roboto = Roboto({subsets:['latin'],variable:'--font-sans'});
 
@@ -31,11 +32,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", roboto.variable)}
+      suppressHydrationWarning
     >
       
-      <body className=" bg-[#F1F5F9] ">
+      <body className=" bg-[#F1F5F9] dark:bg-[#0A0A12]">
+         <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Navbar/>
         <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
        </body>
     </html>
   );
