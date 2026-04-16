@@ -78,19 +78,19 @@ const visibleHoldings = showAll
           className="cursor-pointer"
         />
       </TableHead>
-      <TableHead className="w-[200px] px-3 ">Asset</TableHead>
+      <TableHead className="w-[200px] px-3 text-sm font-semibold">Asset</TableHead>
       <TableHead>
-  <div className="flex flex-col">
-    <span>Holdings</span>
+  <div className="flex flex-col ">
+    <span className="text-sm font-semibold">Holdings</span>
     <span className="text-[11px] text-[#64748B] mt-1">
       Current Market Rate
     </span>
   </div>
 </TableHead>
-      <TableHead>Total current Value</TableHead>
+      <TableHead className="text-sm font-semibold  ">Total current Value</TableHead>
 
       <TableHead  onClick={toggleSort}
-  className="cursor-pointer select-none flex items-center gap-1"
+  className="cursor-pointer select-none flex items-center gap-1 text-sm font-semibold"
   >
       Short-Term
   {sortOrder === "asc" ? (
@@ -100,8 +100,8 @@ const visibleHoldings = showAll
   )}
      </TableHead>
 
-      <TableHead>Long-term</TableHead>
-      <TableHead>Amount to Sell</TableHead>
+      <TableHead className="text-sm font-semibold">Long-term</TableHead>
+      <TableHead className="text-sm font-semibold">Amount to Sell</TableHead>
     </TableRow>
   </TableHeader>
 
