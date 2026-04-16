@@ -18,14 +18,14 @@ export default function Header() {
         <div className='flex items-center  gap-2.5'>
             <h2 className="font-bold text-xl">Tax Harvesting</h2>
            <Tooltip>
-  <TooltipTrigger className="text-blue-900 text-xs underline">{} How it Works?</TooltipTrigger>
+  <TooltipTrigger className="text-[#0052FE] text-xs underline">{} How it Works?</TooltipTrigger>
   <TooltipContent side="bottom">
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique beatae omnis repellat quas? Quidem corporis possimus</p>
   </TooltipContent>
 </Tooltip>
         </div>
         <div>
-           <Accordion type="single" collapsible defaultValue="item-1" className="border border-blue-500 bg-blue-100 ">
+           <Accordion defaultValue={["item-1"]} className="border border-blue-500 bg-blue-100 ">
   <AccordionItem value="item-1">
     <AccordionTrigger className="gap-2 items-center"><Info className="size-4.5 text-blue-600" />Is it accessible?</AccordionTrigger>
     <AccordionContent className="  text-sm ">

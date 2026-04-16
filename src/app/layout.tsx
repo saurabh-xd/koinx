@@ -32,8 +32,9 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", roboto.variable)}
     >
-      <Navbar/>
-      <body className="min-h-full flex flex-col">
+      
+      <body className="min-h-full flex flex-col bg-background ">
+        <Navbar/>
         <TooltipProvider>{children}</TooltipProvider>
        </body>
     </html>
