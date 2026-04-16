@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Tax Loss Harvesting Dashboard
 
-## Getting Started
+A responsive frontend application that simulates a **crypto tax loss harvesting tool**, built using **Next.js, Tailwind CSS, and shadcn/ui**.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+*  Display user holdings with detailed breakdown
+*  Pre-harvesting vs Post-harvesting comparison
+*  Select holdings to simulate tax loss harvesting
+*  Automatic gain/loss recalculation
+*  Sorting (Short-term gains ascending/descending)
+*  View All / Show Less functionality
+*  Mobile responsive design (with horizontal scroll)
+*  Clean UI based on Figma design
+*  Dark mode support
+
+---
+
+## 🛠️ Tech Stack
+
+* **Next.js (App Router)**
+* **React**
+* **Tailwind CSS**
+* **shadcn/ui**
+* **TypeScript**
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/saurabh-xd/koinx
+cd your-repo-name
+```
+
+---
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Open in browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🖥️ Desktop View
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Holdings table with full data
+* Pre vs Post harvesting cards
 
-## Deploy on Vercel
+### 📱 Mobile View
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Horizontally scrollable table
+* Optimized layout for smaller screens
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*(Add screenshots here if required)*
+
+---
+
+## 🧠 Assumptions
+
+* Mock APIs are used for holdings and capital gains data
+* "Amount to Sell" = full holding when selected
+* Gains are calculated using:
+
+  * STCG (Short-Term Capital Gains)
+  * LTCG (Long-Term Capital Gains)
+* Negative gains are treated as losses
+* No real backend or persistent storage is used
+* Currency is displayed in USD ($) as per provided data
+* Human-readable formatting (like 1.2M) was skipped for simplicity
+
+---
+
+## ⚡ Key Functionality
+
+* Selecting a holding updates:
+
+  * Short-term profits/losses
+  * Long-term profits/losses
+  * Overall capital gains
+
+* If post-harvesting gain is lower than pre-harvesting:
+
+  * A savings message is displayed
+
+---
+
+## 🎯 Notes
+
+* Focus was on **clean UI + correct logic implementation**
+* Followed component-based architecture
+* Avoided over-engineering (no Redux, simple state management)
+
+
+---

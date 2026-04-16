@@ -75,6 +75,7 @@ const visibleHoldings = showAll
           type="checkbox"
           checked={selected.length === holdings.length}
           onChange={toggleAll}
+          className="cursor-pointer"
         />
       </TableHead>
       <TableHead className="w-[200px] px-3 ">Asset</TableHead>
@@ -122,6 +123,7 @@ const visibleHoldings = showAll
               type="checkbox"
               checked={isChecked}
               onChange={() => toggle(item.coin)}
+              className="cursor-pointer"
             />
           </TableCell>
 

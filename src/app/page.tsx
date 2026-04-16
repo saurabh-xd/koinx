@@ -1,6 +1,6 @@
 "use client"
+import Header from "@/components/header/header";
 import HarvestCard from "../components/cards/HarvestCard";
-import Header from "@/components/header";
 import HoldingsTable from "@/components/table/holdingsTable";
 import { getCapitalGains, getHoldings } from "@/services/api";
 import { useEffect, useState } from "react";
@@ -24,7 +24,13 @@ export default function Home() {
     fetchData()
   }, [])
 
-  if (!gains) return <p className="text-white p-6">Loading...</p>
+ if (!gains) {
+  return (
+    <div className="p-6 text-center text-gray-500">
+      Loading data...
+    </div>
+  )
+}
 
   const computeUpdatedGains = () => {
   const updated = JSON.parse(JSON.stringify(gains)) // ✅ FIX
