@@ -69,7 +69,7 @@ const savings = preRealised - postRealised
 const showSavings = postRealised < preRealised
 
   return (
-   <main className="p-6 mx-46 min-h-screen ">
+   <main className="p-6  min-h-screen flex flex-col max-w-[1400px] mx-auto">
 
     <Header/>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
