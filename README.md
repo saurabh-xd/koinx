@@ -63,34 +63,9 @@ http://localhost:3000
 
 ---
 
-## 📸 Screenshots
+![Desktop](./public/image.png)
 
-### 🖥️ Desktop View
 
-* Holdings table with full data
-* Pre vs Post harvesting cards
-
-### 📱 Mobile View
-
-* Horizontally scrollable table
-* Optimized layout for smaller screens
-
-*(Add screenshots here if required)*
-
----
-
-## 🧠 Assumptions
-
-* Mock APIs are used for holdings and capital gains data
-* "Amount to Sell" = full holding when selected
-* Gains are calculated using:
-
-  * STCG (Short-Term Capital Gains)
-  * LTCG (Long-Term Capital Gains)
-* Negative gains are treated as losses
-* No real backend or persistent storage is used
-* Currency is displayed in USD ($) as per provided data
-* Human-readable formatting (like 1.2M) was skipped for simplicity
 
 ---
 
