@@ -61,24 +61,31 @@ const visibleHoldings = showAll
   ? sortedHoldings
   : sortedHoldings.slice(0, 4)
   return (
-    <div className="bg-card p-4 rounded-xl mt-6">
+    <div className="bg-card p-4 rounded-xl mt-6 shadow-[0px_2px_16px_rgba(25,40,57,0.09)]">
       <h2 className="text-lg font-semibold mb-4">Holdings</h2>
 
       {/* SCROLL FIX */}
-      <div className="max-h-[400px] overflow-y-auto rounded-lg ">
-       <Table className="table-fixed">
+      <div className="max-h-[400px] overflow-y-auto overflow-x-auto rounded-lg">
+      <Table className="min-w-[800px] table-fixed">
   {/* HEADER */}
-  <TableHeader>
+  <TableHeader className="bg-[#F1F5F9]">
     <TableRow>
-      <TableHead>
+      <TableHead className="w-[40px] text-center">
         <input
           type="checkbox"
           checked={selected.length === holdings.length}
           onChange={toggleAll}
         />
       </TableHead>
-      <TableHead className="w-[200px]">Asset</TableHead>
-      <TableHead>Holdings</TableHead>
+      <TableHead className="w-[200px] px-3">Asset</TableHead>
+      <TableHead>
+  <div className="flex flex-col">
+    <span>Holdings</span>
+    <span className="text-[11px] text-[#64748B] mt-1">
+      Current Market Rate
+    </span>
+  </div>
+</TableHead>
       <TableHead>Total current Value</TableHead>
 
       <TableHead  onClick={toggleSort}
@@ -106,11 +113,11 @@ const visibleHoldings = showAll
         <TableRow
           key={`${item.coin}-${idx}`}
           className={`cursor-pointer ${
-            isChecked ? "bg-blue-100 hover:bg-blue-100" : ""
+            isChecked ? "bg-[#EAF2FF] hover:bg-[#DBE2EC]" : ""
           }`}
         >
           {/* Checkbox */}
-          <TableCell>
+          <TableCell className="w-[40px] pr-3 text-center">
             <input
               type="checkbox"
               checked={isChecked}
@@ -122,17 +129,17 @@ const visibleHoldings = showAll
           <TableCell className="flex items-center gap-2">
             <img src={item.logo} className="w-6 h-6" />
             <div>
-              <p>{item.coin}</p>
-              <p className="text-xs text-gray-400  truncate max-w-[120px]">
-                {item.coinName}
+              <p className="truncate max-w-[85px] text-base">{item.coinName}</p>
+              <p className="text-xs ">
+                {item.coin}
               </p>
             </div>
           </TableCell>
 
           {/* Holdings */}
           <TableCell>
-            <p>{item.totalHolding.toFixed(4)}</p>
-            <p className="text-xs text-gray-400">
+            <p>{item.totalHolding.toFixed(4)} {item.coin}</p>
+            <p className="text-xs text-[#64748B]">
               ${item.averageBuyPrice.toFixed(2)}
             </p>
           </TableCell>
@@ -147,13 +154,13 @@ const visibleHoldings = showAll
           <TableCell
             className={
               item.stcg.gain > 0
-                ? "text-green-500"
-                : "text-red-500"
+                ? "text-[#00AE78]"
+                : "text-[#F7324C]"
             }
           >
-            ${item.stcg.gain.toFixed(2)}
-            <p className="text-xs text-gray-400">
-              {item.stcg.balance.toFixed(4)}
+            ${item.stcg.gain.toFixed(2)} 
+            <p className="text-xs text-[#64748B]">
+              {item.stcg.balance.toFixed(4)} {item.coin}
             </p>
           </TableCell>
 
@@ -167,14 +174,14 @@ const visibleHoldings = showAll
           >
             ${item.ltcg.gain.toFixed(2)}
             <p className="text-xs text-gray-400">
-              {item.ltcg.balance.toFixed(4)}
+              {item.ltcg.balance.toFixed(4)} {item.coin}
             </p>
           </TableCell>
 
           {/* Amount to Sell */}
           <TableCell>
             {isChecked
-              ? item.totalHolding.toFixed(4)
+              ? `${item.totalHolding.toFixed(4)} ${item.coin} `
               : "-"}
           </TableCell>
         </TableRow>

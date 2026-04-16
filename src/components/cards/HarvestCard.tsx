@@ -44,28 +44,21 @@ export default function HarvestCard({
       }`}
     >
       <CardContent className="p-0 space-y-4">
-       
         <h2 className="md:text-xl text-lg font-semibold">{title}</h2>
 
-      
         <div className="grid grid-cols-[2fr_1fr_1fr] items-center mb-2 text-sm md:text-base">
           <span></span>
           <span className="text-right pr-4 whitespace-nowrap">Short-term</span>
           <span className="text-right">Long-term</span>
         </div>
 
-       
         <Row label="Profits" stcg={stcg.profits} ltcg={ltcg.profits} />
 
-        
         <Row label="Losses" stcg={-stcg.losses} ltcg={-ltcg.losses} />
 
-      
         <Row label="Net Capital Gains" stcg={stcgNet} ltcg={ltcgNet} bold />
 
-       
         <div className="  pt-3">
-        
           <div className="flex items-center gap-5 md:gap-7">
             <span className="md:text-xl text-base font-bold whitespace-nowrap">
               {highlight ?
@@ -73,7 +66,9 @@ export default function HarvestCard({
               : "Realised Capital Gains:"}
             </span>
 
-            <span className="md:text-2xl text-lg font-semibold ">{signed(realised)}</span>
+            <span className="md:text-2xl text-lg font-semibold ">
+              {signed(realised)}
+            </span>
           </div>
 
           {highlight && showSavings && (
@@ -103,7 +98,9 @@ function Row({
     <div className="grid grid-cols-[2fr_1fr_1fr] items-center text-sm py-1">
       <span>{label}</span>
 
-      <span className={`text-right text-nowrap pr-4 ${bold ? "font-semibold" : ""}`}>
+      <span
+        className={`text-right text-nowrap pr-4 ${bold ? "font-semibold" : ""}`}
+      >
         {formatWithSign(stcg)}
       </span>
 
